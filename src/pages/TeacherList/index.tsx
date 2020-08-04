@@ -10,18 +10,24 @@ const TeacherList: React.FC = () => {
       <PageHeader title="Estes são os proffys disponíveis">
         <form id="search-teachers">
           <div className="input-block">
-            <label htmlFor="subject">Matéria</label>
-            <input id="subject" name="subject" type="text" />
+            <label htmlFor="subject">
+              Matéria
+              <input id="subject" name="subject" type="text" />
+            </label>
           </div>
 
           <div className="input-block">
-            <label htmlFor="week_day">Dia da semana</label>
-            <input type="text" id="week_day" />
+            <label htmlFor="week_day">
+              Dia da semana
+              <input type="text" id="week_day" />
+            </label>
           </div>
 
           <div className="input-block">
-            <label htmlFor="time">Hora</label>
-            <input type="text" id="time" />
+            <label htmlFor="time">
+              Hora
+              <input type="text" id="time" />
+            </label>
           </div>
         </form>
       </PageHeader>
