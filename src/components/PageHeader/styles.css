@@ -41,6 +41,14 @@
   line-height: 4.2rem;
 }
 
+.page-header .header-content p {
+  color: var(--color-text-in-primary);
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  max-width: 30rem;
+  margin-top: 2.4rem;
+}
+
 @media (min-width: 700px) {
   .page-header {
     height: 340px;
