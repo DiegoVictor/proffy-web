@@ -1,40 +1,56 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import WhatsAppIcon from '../../assets/images/icons/whatsapp.svg';
+import api from '../../services/api';
+import formatValue from '../../utils/formatValue';
 import './styles.css';
 
-const TeacherItem: React.FC = () => {
+export interface Teacher {
+  id: number;
+  subject: string;
+  cost: number;
+  name: string;
+  avatar: string;
+  whatsapp: string;
+  bio: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  const createConnection = useCallback(() => {
+    api.post('connections', { user_id: teacher.id });
+  }, [teacher]);
+
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars2.githubusercontent.com/u/15165349?s=460&u=1013eaaceb8a54984f7f77bc21812ad68f6ef526&v=4"
-          alt="Diego Victor"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Diego Victor</strong>
-          <span>Desenvolvimento</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Entusiasta das melhores tecnologias de química avançada.
-        <br />
-        <br />
-        Apaixonado por explodir coisas em laboratório e por mudar a vida das
-        pessoas através de experiências. Mais de 200.000 pessoas já passaram por
-        uma das minhas explosões.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>R$ 80,00</strong>
+          <strong>{formatValue(teacher.cost)}</strong>
         </p>
-        <button type="button">
+        <a
+          onClick={createConnection}
+          href={`https://wa.me/${teacher.whatsapp}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          type="button"
+        >
           <img src={WhatsAppIcon} alt="WhatsApp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );

@@ -58,7 +58,7 @@
   font-size: 1.6rem;
 }
 
-.teacher-item footer button {
+.teacher-item footer a {
   align-items: center;
   background-color: var(--color-secundary);
   border: 0px;
@@ -71,11 +71,12 @@
   font-weight: 700;
   justify-content: space-evenly;
   height: 5.6rem;
+  text-decoration: none;
   transition: 0.2s;
   width: 20rem;
 }
 
-.teacher-item footer button:hover {
+.teacher-item footer a:hover {
   background-color: var(--color-secundary-dark);
 }
 
@@ -100,7 +101,7 @@
     width: 24.5rem;
   }
 
-  .teacher-item footer button img {
+  .teacher-item footer a img {
     margin-right: 1.6rem;
   }
 }
