@@ -11,12 +11,16 @@ This web version allow NGOs to register yourself and manage its incidents. All t
 ## Table of Contents
 * [Screenshots](#screenshots)
 * [Installing](#installing)
+* [Configuring](#configuring)
+    * [.env](#env)
+    * [API](#api)
 * [Usage](#usage)
 
 # Screenshots
 Click to expand.<br>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/home.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/teachers.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/form.png" width="100%"/>
 
 # Installing
 Easy peasy lemon squeezy:
@@ -28,6 +32,20 @@ Or:
 $ npm install
 ```
 > Was installed and configured the [`eslint`](https://eslint.org/) and [`prettier`](https://prettier.io/) to keep the code clean and patterned.
+
+## Configuring
+Configure your environment variables and remember to start the [API](https://github.com/DiegoVictor/proffy-api) before to start this app.
+
+### .env
+In this file you may configure the API's url. Rename the `.env.example` in the root directory to `.env` then just update with your settings.
+
+key|description|default
+---|---|---
+REACT_APP_API_URL|API's url with version (v1)|`http://localhost:3333/v1`
+
+### API
+Start the [API](https://github.com/DiegoVictor/proffy-api) (see its README for more information). In case of any change in the API's `port` or `host` remember to update the [`.env`](#env) too.
+
 
 # Usage
 To start the app run:
