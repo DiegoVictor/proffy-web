@@ -10,7 +10,7 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 const Textarea: React.FC<TextareaProps> = ({ name, label, ...props }) => {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -32,6 +32,7 @@ const Textarea: React.FC<TextareaProps> = ({ name, label, ...props }) => {
           {...props}
         />
       </label>
+      {error && <span>{error}</span>}
     </div>
   );
 };

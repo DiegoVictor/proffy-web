@@ -10,7 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ name, label, ...props }) => {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -33,6 +33,7 @@ const Input: React.FC<InputProps> = ({ name, label, ...props }) => {
           {...props}
         />
       </label>
+      {error && <span>{error}</span>}
     </div>
   );
 };
