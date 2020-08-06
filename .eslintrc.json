@@ -28,6 +28,8 @@
     "react/jsx-props-no-spreading": "off",
     "camelcase": "off",
     "react/prop-types": "off",
+    "no-unused-expressions": "off",
+    "react/no-array-index-key": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
