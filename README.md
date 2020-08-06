@@ -20,7 +20,7 @@ This web version allow NGOs to register yourself and manage its incidents. All t
 Click to expand.<br>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/home.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/teachers.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/form.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/form.png" width="49%"/>
 
 # Installing
 Easy peasy lemon squeezy:
