@@ -11,17 +11,15 @@ import './styles.css';
 
 const TeacherList: React.FC = () => {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
-  const handleSubmit = useCallback(data => {
-    (async () => {
-      try {
-        const response = await api.get<Teacher[]>('classes', {
-          params: data,
-        });
-        setTeachers(response.data);
-      } catch (err) {
-        toast.error('Ops! Alguma coisa deu errado, tente mais tarde!');
-      }
-    })();
+  const handleSubmit = useCallback(async data => {
+    try {
+      const response = await api.get<Teacher[]>('classes', {
+        params: data,
+      });
+      setTeachers(response.data);
+    } catch (err) {
+      toast.error('Ops! Alguma coisa deu errado, tente mais tarde!');
+    }
   }, []);
 
   return (
