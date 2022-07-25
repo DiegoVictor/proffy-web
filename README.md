@@ -3,7 +3,7 @@
 [![react](https://img.shields.io/badge/reactjs-16.13.1-61dafb?style=flat-square&logo=react)](https://reactjs.org/)
 [![eslint](https://img.shields.io/badge/eslint-6.8.0-4b32c3?style=flat-square&logo=eslint)](https://eslint.org/)
 [![airbnb-style](https://flat.badgen.net/badge/style-guide/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
-[![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/DiegoVictor/proffy-web/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/DiegoVictor/proffy-web/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
@@ -19,9 +19,9 @@ This web version allow NGOs to register yourself and manage its incidents. All t
 
 # Screenshots
 Click to expand.<br>
-<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/home.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/teachers.png" width="49%"/>
-<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/master/screenshots/form.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/home.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/teachers.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/form.png" width="49%"/>
 
 # Installing
 Easy peasy lemon squeezy:
