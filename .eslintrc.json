@@ -7,7 +7,6 @@
     "plugin:react/recommended",
     "airbnb",
     "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -28,8 +27,10 @@
     "react/jsx-props-no-spreading": "off",
     "camelcase": "off",
     "react/prop-types": "off",
+    "react/require-default-props": "off",
     "no-unused-expressions": "off",
     "react/no-array-index-key": "off",
+    "no-param-reassign": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
