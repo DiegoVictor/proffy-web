@@ -1,4 +1,9 @@
-import React, { SelectHTMLAttributes, useEffect, useRef } from 'react';
+import React, {
+  PropsWithChildren,
+  SelectHTMLAttributes,
+  useEffect,
+  useRef,
+} from 'react';
 import { useField } from '@unform/core';
 
 import './styles.css';
@@ -12,7 +17,12 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   }>;
 }
 
-const Select: React.FC<SelectProps> = ({ name, label, options, ...props }) => {
+function Select({
+  name,
+  label,
+  options,
+  ...props
+}: PropsWithChildren<SelectProps>) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
@@ -48,6 +58,6 @@ const Select: React.FC<SelectProps> = ({ name, label, options, ...props }) => {
       {error && <span>{error}</span>}
     </div>
   );
-};
+}
 
 export default Select;

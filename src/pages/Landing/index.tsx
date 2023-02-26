@@ -9,7 +9,7 @@ import PurpleHeartIcon from '../../assets/images/icons/purple-heart.svg';
 import api from '../../services/api';
 import './styles.css';
 
-const Landing: React.FC = () => {
+function Landing() {
   const [totalConnections, setTotalConnections] = useState(0);
 
   useEffect(() => {
@@ -52,6 +52,6 @@ const Landing: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Landing;

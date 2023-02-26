@@ -1,4 +1,9 @@
-import React, { TextareaHTMLAttributes, useEffect, useRef } from 'react';
+import React, {
+  PropsWithChildren,
+  TextareaHTMLAttributes,
+  useEffect,
+  useRef,
+} from 'react';
 import { useField } from '@unform/core';
 
 import './styles.css';
@@ -8,7 +13,7 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
 }
 
-const Textarea: React.FC<TextareaProps> = ({ name, label, ...props }) => {
+function Textarea({ name, label, ...props }: PropsWithChildren<TextareaProps>) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
 
@@ -35,6 +40,6 @@ const Textarea: React.FC<TextareaProps> = ({ name, label, ...props }) => {
       {error && <span>{error}</span>}
     </div>
   );
-};
+}
 
 export default Textarea;

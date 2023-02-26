@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 
 import LogoImg from '../../assets/images/logo.svg';
@@ -10,11 +10,11 @@ interface PageHeaderProps {
   description?: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({
+function PageHeader({
   title,
   description,
   children,
-}) => {
+}: PropsWithChildren<PageHeaderProps>) {
   return (
     <header className="page-header">
       <div className="top-bar-container">
@@ -33,6 +33,6 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       </div>
     </header>
   );
-};
+}
 
 export default PageHeader;

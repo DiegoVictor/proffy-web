@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { PropsWithChildren, useCallback } from 'react';
 
 import WhatsAppIcon from '../../assets/images/icons/whatsapp.svg';
 import api from '../../services/api';
@@ -19,7 +19,7 @@ interface TeacherItemProps {
   teacher: Teacher;
 }
 
-const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+function TeacherItem({ teacher }: PropsWithChildren<TeacherItemProps>) {
   const createConnection = useCallback(() => {
     api.post('connections', { user_id: teacher.id });
   }, [teacher]);
@@ -54,6 +54,6 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
       </footer>
     </article>
   );
-};
+}
 
 export default TeacherItem;
