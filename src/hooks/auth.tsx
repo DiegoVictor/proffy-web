@@ -1,4 +1,5 @@
 import React, {
+  useContext,
   createContext,
 } from 'react';
 
@@ -19,3 +20,7 @@ interface IAuthContext extends IAuthState {
 }
 
 const AuthContext = createContext({} as IAuthContext);
+
+export const useAuth = (): IAuthContext => {
+  return useContext(AuthContext);
+};
