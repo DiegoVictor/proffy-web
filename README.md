@@ -6,8 +6,7 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-
-This web version allow NGOs to register yourself and manage its incidents. All the resources used by this application comes from its [`API`](https://github.com/DiegoVictor/bethehero-api).
+This web version allow users to register yourself, reset your password, log in, update your information, check others classes availability and share your own classes availability. All the resources used by this application comes from its [`API`](https://github.com/DiegoVictor/proffy-api).
 
 ## Table of Contents
 * [Screenshots](#screenshots)
