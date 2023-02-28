@@ -2,6 +2,8 @@ import React, {
   useContext,
   createContext,
   PropsWithChildren,
+  useState,
+  useCallback,
 } from 'react';
 import api from '../services/api';
 
@@ -38,6 +40,16 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
 
     return {};
   });
+
+  const signOut = useCallback(() => {
+    localStorage.removeItem('proffy:token');
+    localStorage.removeItem('proffy:user');
+
+    delete api.defaults.headers.common.Authorization;
+
+    setData({});
+  }, []);
+
 }
 
 export const useAuth = (): IAuthContext => {
