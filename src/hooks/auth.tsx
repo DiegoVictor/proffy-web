@@ -50,6 +50,43 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
     setData({});
   }, []);
 
+  const signIn = useCallback(
+    async (email: string, password: string, remember: boolean) => {
+      const {
+        data: {
+          user: { id, name, avatar },
+          token,
+        },
+      } = await api.post('/sessions', {
+        email,
+        password,
+      });
+
+      if (remember) {
+        localStorage.setItem('proffy:token', token);
+        localStorage.setItem(
+          'proffy:user',
+          JSON.stringify({
+            id,
+            name,
+            avatar,
+          }),
+        );
+      }
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+      setData({
+        token,
+        user: {
+          id,
+          name,
+          avatar,
+        },
+      });
+    },
+    [],
+  );
+
 }
 
 export const useAuth = (): IAuthContext => {
