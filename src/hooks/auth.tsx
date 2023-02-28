@@ -1,7 +1,9 @@
 import React, {
   useContext,
   createContext,
+  PropsWithChildren,
 } from 'react';
+import api from '../services/api';
 
 interface IUser {
   id: string;
@@ -20,6 +22,23 @@ interface IAuthContext extends IAuthState {
 }
 
 const AuthContext = createContext({} as IAuthContext);
+
+export function AuthProvider({ children }: PropsWithChildren<object>) {
+  const [data, setData] = useState<IAuthState>(() => {
+    const token = localStorage.getItem('proffy:token');
+    const user = localStorage.getItem('proffy:user');
+
+    if (token && user) {
+      api.defaults.headers.common.Authorization = `Bearer ${token}`;
+      return {
+        user: JSON.parse(user),
+        token,
+      };
+    }
+
+    return {};
+  });
+}
 
 export const useAuth = (): IAuthContext => {
   return useContext(AuthContext);
