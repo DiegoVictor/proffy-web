@@ -1,6 +1,7 @@
 import React, {
   useContext,
   createContext,
+  useMemo,
   PropsWithChildren,
   useState,
   useCallback,
@@ -87,6 +88,18 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
     [],
   );
 
+  const context = useMemo(
+    () => ({
+      ...data,
+      signOut,
+      signIn,
+    }),
+    [data, signOut, signIn],
+  );
+
+  return (
+    <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
+  );
 }
 
 export const useAuth = (): IAuthContext => {
