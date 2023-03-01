@@ -1,16 +1,17 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AuthProvider } from './hooks/auth';
 
-import Routes from './router';
+import Routes from './routes';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <>
+    <AuthProvider>
       <ToastContainer />
       <Routes />
-    </>
+    </AuthProvider>
   );
-};
+}
 
 export default App;
