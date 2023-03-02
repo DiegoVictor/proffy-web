@@ -6,14 +6,15 @@ import React, {
 } from 'react';
 import { useField } from '@unform/core';
 
-import './styles.css';
+import { InpuBlock, InputField, Icon } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  label: string;
+  label?: string;
+  icon?: JSX.Element;
 }
 
-const Input: React.FC<InputProps> = ({ name, label, ...props }) => {
+function Input({ name, label, icon, ...props }: PropsWithChildren<InputProps>) {
   const inputRef = useRef(null);
   const { fieldName, defaultValue, registerField, error } = useField(name);
 
@@ -26,10 +27,10 @@ const Input: React.FC<InputProps> = ({ name, label, ...props }) => {
   }, [fieldName, registerField]);
 
   return (
-    <div className="input-block">
+    <InpuBlock>
       <label htmlFor={name}>
         {label}
-        <input
+        <InputField
           id={name}
           name={name}
           type="text"
@@ -37,10 +38,11 @@ const Input: React.FC<InputProps> = ({ name, label, ...props }) => {
           defaultValue={defaultValue}
           {...props}
         />
+        {icon && <Icon>{icon}</Icon>}
       </label>
       {error && <span>{error}</span>}
-    </div>
+    </InpuBlock>
   );
-};
+}
 
 export default Input;
