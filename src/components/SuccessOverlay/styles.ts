@@ -22,10 +22,26 @@ export const Container = styled.div`
   }
 
   > div {
+    align-items: center;
+    background-color: var(--color-primary);
     background-image: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     @media (max-width: 799px) {
-      background: transparent;
+      min-height: 50px;
+      background-image: none;
+    }
+
+    img {
+      height: 100px;
+
+      @media (max-width: 799px) {
+        display: none;
+      }
     }
 
     > div {
