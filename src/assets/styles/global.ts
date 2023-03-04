@@ -20,3 +20,27 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const Main = styled.div`
+  > div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    margin: auto;
+    width: 352px;
+  }
+
+  @media (max-width: 799px) {
+    height: calc(100% - 50px);
+
+    > div {
+      max-width: 352px;
+      width: 100%;
+    }
+
+    form {
+      margin-bottom: 10px;
+    }
+  }
+`;
