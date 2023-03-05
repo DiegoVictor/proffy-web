@@ -61,6 +61,8 @@ function SignUp() {
               </Button>
             </Form>
           </div>
+
+          <Bottom />
         </div>
       </Main>
 
