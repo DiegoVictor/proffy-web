@@ -12,6 +12,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
 import Proffy from '../../components/Proffy';
 import BackButton from '../../components/BackButton';
+import SuccessOverlay from '../../components/SuccessOverlay';
 import { Container, Main } from '../../assets/styles/global';
 
 function SignUp() {
@@ -57,11 +58,28 @@ function SignUp() {
     },
     [form],
   );
+
+  if (successOverlay) {
+    return (
+      <SuccessOverlay
+        subtitle={<h1>Cadastro concluído</h1>}
+        message={
+          <>
+            Agora você faz parte da plataforma da Proffy.
+            <br /> Tenha uma ótima experiência.
+          </>
+        }
+        buttonLabel="Fazer Login"
+      />
+    );
+  }
+
   return (
     <Container>
       <Main>
         <div>
           <BackButton />
+
           <div>
             <Title>Cadastro</Title>
             <Subtitle>Preencha os dados abaixo para começar.</Subtitle>
