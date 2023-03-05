@@ -12,6 +12,9 @@ import { Container, Main } from '../../assets/styles/global';
 
 function SignUp() {
   const form = useRef<FormHandles>(null);
+  const [hidePassword, setHidePassword] = useState(true);
+  const [successOverlay, setSuccessOverlay] = useState(false);
+
   return (
     <Container>
       <Main>
