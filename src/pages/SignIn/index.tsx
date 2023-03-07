@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Checkbox from '../../components/Checkbox';
+import { Title, InputGroup, Actions, Footer, Register } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useAuth } from '../../hooks/auth';
 import Proffy from '../../components/Proffy';
@@ -83,6 +85,17 @@ function SignIn() {
                   }
                 />
               </InputGroup>
+
+              <Actions>
+                <div>
+                  <Checkbox name="remember" value="yes" />
+                  Lembrar-me
+                </div>
+                <div>
+                  <Link to="/forgot">Esqueci minha senha</Link>
+                </div>
+              </Actions>
+
               <Button
                 onClick={() => {
                   if (form && form.current) {

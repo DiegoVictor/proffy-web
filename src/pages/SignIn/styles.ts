@@ -35,6 +35,28 @@ export const InputGroup = styled.div`
     }
   }
 `;
+
+export const Actions = styled.div`
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  width: 100%;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    color: var(--color-text-complement);
+    text-decoration: none;
+  }
+
+  & + button {
+    margin-top: 40px;
+  }
+`;
+
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
