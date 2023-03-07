@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useAuth } from '../../hooks/auth';
 import Proffy from '../../components/Proffy';
@@ -82,6 +83,15 @@ function SignIn() {
                   }
                 />
               </InputGroup>
+              <Button
+                onClick={() => {
+                  if (form && form.current) {
+                    form.current.submitForm();
+                  }
+                }}
+              >
+                Entrar
+              </Button>
             </Form>
           </div>
 
