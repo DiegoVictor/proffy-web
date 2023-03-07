@@ -1,5 +1,40 @@
 import styled from 'styled-components';
 
+export const Title = styled.h1`
+  color: #32264d;
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 36px;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 40px;
+`;
+
+export const InputGroup = styled.div`
+  margin-bottom: 24px;
+
+  div label input {
+    font-family: Poppins;
+    font-size: 16px;
+    height: 72px;
+  }
+
+  div:first-child {
+    label input {
+      border-radius: 8px 8px 0px 0px;
+    }
+  }
+
+  div:last-child {
+    margin-top: 0px;
+
+    label input {
+      border-top: 0px;
+      border-radius: 0px 0px 8px 8px;
+      margin-top: 0px;
+    }
+  }
+`;
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
