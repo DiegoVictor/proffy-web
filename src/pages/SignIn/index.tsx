@@ -4,8 +4,11 @@ import { MdFavorite } from 'react-icons/md';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 import Input from '../../components/Input';
+import getValidationErrors from '../../utils/getValidationErrors';
 import { useAuth } from '../../hooks/auth';
 import Proffy from '../../components/Proffy';
 import { Container, Main } from '../../assets/styles/global';
@@ -17,6 +20,27 @@ function SignIn() {
 
   const handleSubmit = useCallback(
     async ({ email, password, remember }) => {
+      try {
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .email('Digite um email válido')
+            .required('Email obrigatório'),
+          password: Yup.string().required('Senha obrigatória'),
+        });
+
+        await schema.validate({ email, password }, { abortEarly: false });
+
+        await signIn(email, password, remember);
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+          form.current?.setErrors(errors);
+        } else {
+          toast.error(
+            'Ocorreu um erro ao tentar fazer login, cheque suas credenciais.',
+          );
+        }
+      }
     },
     [form, signIn],
   );
