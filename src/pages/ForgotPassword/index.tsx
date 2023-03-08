@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
+import { Title, Subtitle } from './styles';
 import Proffy from '../../components/Proffy';
 import BackButton from '../../components/BackButton';
 import SuccessOverlay from '../../components/SuccessOverlay';
@@ -29,6 +30,11 @@ function ForgotPassword() {
           <BackButton />
 
           <div>
+            <Title>
+              Eita, esqueceu
+              <br /> sua senha?
+            </Title>
+            <Subtitle>Não esquenta, vamos dar um jeito nisso.</Subtitle>
         </div>
       </Main>
 
