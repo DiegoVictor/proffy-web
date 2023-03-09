@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
+import api from '../../services/api';
 import Proffy from '../../components/Proffy';
 import BackButton from '../../components/BackButton';
 import SuccessOverlay from '../../components/SuccessOverlay';
@@ -25,6 +26,12 @@ function ForgotPassword() {
       });
 
       await schema.validate({ email }, { abortEarly: false });
+
+      await api.post('/users/forgot_password', {
+        email,
+      });
+
+      setSuccessOverlay(true);
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
