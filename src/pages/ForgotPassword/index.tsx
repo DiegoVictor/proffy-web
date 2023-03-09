@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import { Title, Subtitle } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
 import Proffy from '../../components/Proffy';
@@ -84,6 +85,8 @@ function ForgotPassword() {
               Enviar
             </Button>
           </div>
+
+          <div />
         </div>
       </Main>
 
