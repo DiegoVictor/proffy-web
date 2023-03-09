@@ -1,9 +1,12 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import getValidationErrors from '../../utils/getValidationErrors';
 import Proffy from '../../components/Proffy';
 import BackButton from '../../components/BackButton';
 import SuccessOverlay from '../../components/SuccessOverlay';
@@ -14,6 +17,24 @@ function ForgotPassword() {
   const [successOverlay, setSuccessOverlay] = useState(false);
 
   const handleSubmit = useCallback(async ({ email }) => {
+    try {
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .email('Digite um email válido')
+          .required('Email obrigatório'),
+      });
+
+      await schema.validate({ email }, { abortEarly: false });
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationErrors(err);
+        form.current?.setErrors(errors);
+      } else {
+        toast.error(
+          'Ocorreu um erro ao tentar cadastrar seus dados, tente novamente.',
+        );
+      }
+    }
   }, []);
 
   if (successOverlay) {
