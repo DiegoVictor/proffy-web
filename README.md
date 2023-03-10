@@ -18,6 +18,7 @@ This web version allow users to register yourself, reset your password, log in, 
 
 # Screenshots
 Click to expand.<br>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/register.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/login.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/forgot.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/home.png" width="49%"/>
@@ -47,7 +48,6 @@ REACT_APP_API_URL|API's url with version (v1)|`http://localhost:3333/v1`
 
 ### API
 Start the [API](https://github.com/DiegoVictor/proffy-api) (see its README for more information). In case of any change in the API's `port` or `host` remember to update the [`.env`](#env) too.
-
 
 # Usage
 To start the app run:
