@@ -4,6 +4,7 @@ import { useAuth } from '../hooks/auth';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
+import ForgotPassword from '../pages/ForgotPassword';
 
 function Routes() {
   const { user } = useAuth();
@@ -28,6 +29,16 @@ function Routes() {
           return <SignUp />;
         }}
       />
+      <Route
+        path="/forgot"
+        render={() => {
+          if (user) {
+            return <Redirect to="/" />;
+          }
+          return <ForgotPassword />;
+        }}
+      />
+
     </BrowserRouter>
   );
 }
