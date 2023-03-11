@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import LogoImg from '../../assets/images/logo.svg';
 import LandingImg from '../../assets/images/landing.svg';
 import StudyIcon from '../../assets/images/icons/study.svg';
+import LogoutIcon from '../../assets/images/icons/logout.svg';
 import GiveClassesIcon from '../../assets/images/icons/give-classes.svg';
 import PurpleHeartIcon from '../../assets/images/icons/purple-heart.svg';
 import api from '../../services/api';
-import { Container, Header, Content } from './styles';
+import { Container, Header, Logout, Content, User } from './styles';
+import Button from '../../components/Button';
+import { useAuth } from '../../hooks/auth';
 
 function Landing() {
   const [totalConnections, setTotalConnections] = useState(0);
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     (async () => {
@@ -22,6 +25,17 @@ function Landing() {
   return (
     <Container>
       <Header>
+        <div>
+          <User>
+            {user?.avatar && <img src={user.avatar} alt={user?.name} />}
+            {user?.name}
+          </User>
+          <Logout>
+            <Button bg="774DD6" onClick={signOut}>
+              <img src={LogoutIcon} alt="Sair" />
+            </Button>
+          </Logout>
+        </div>
         </div>
       </Header>
 
