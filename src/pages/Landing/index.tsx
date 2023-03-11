@@ -8,6 +8,7 @@ import GiveClassesIcon from '../../assets/images/icons/give-classes.svg';
 import PurpleHeartIcon from '../../assets/images/icons/purple-heart.svg';
 import api from '../../services/api';
 import { Container, Header, Logout, Content, User } from './styles';
+import Proffy from '../../components/Proffy';
 import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
 
@@ -36,6 +37,9 @@ function Landing() {
             </Button>
           </Logout>
         </div>
+        <div>
+          <Proffy />
+          <img src={LandingImg} alt="Plataforma de Estudos" />
         </div>
       </Header>
 
