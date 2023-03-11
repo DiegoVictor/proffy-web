@@ -44,14 +44,34 @@ function Landing() {
       </Header>
 
       <Content>
+        <div>
+          <div>
+            Seja bem-vindo.
+            <br />
+            <strong>O que deseja fazer?</strong>{' '}
+          </div>
+        </div>
+        <div>
+          <div>
+            Total de {totalConnections} conexões
+            <br /> já realizadas &nbsp;
+            <img src={PurpleHeartIcon} alt="Coração roxo" />
+          </div>
+        </div>
+        <div>
           <Link to="/study" className="study">
-            <img src={StudyIcon} alt="Estudar" />
-            Estudar
+            <Button bg="8257E5">
+              <img src={StudyIcon} alt="Estudar" />
+              Estudar
+            </Button>
           </Link>
-
+        </div>
+        <div>
           <Link to="/give-classes" className="give-classes">
-            <img src={GiveClassesIcon} alt="Dar Aulas" />
-            Dar Aulas
+            <Button bg="04D361">
+              <img src={GiveClassesIcon} alt="Dar Aulas" />
+              Dar Aulas
+            </Button>
           </Link>
         </div>
       </Content>
