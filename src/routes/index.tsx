@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import { useAuth } from '../hooks/auth';
 
+import Landing from '../pages/Landing';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import ForgotPassword from '../pages/ForgotPassword';
