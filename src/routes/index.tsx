@@ -41,6 +41,9 @@ function Routes() {
         }}
       />
 
+      <RequireAuth>
+        <Route path="/" exact component={Landing} />
+      </RequireAuth>
     </BrowserRouter>
   );
 }
