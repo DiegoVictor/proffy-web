@@ -20,7 +20,7 @@ interface Schedule {
   to: string;
 }
 
-const TeacherForm: React.FC = () => {
+function GiveClasses() {
   const formRef = useRef<FormHandles>(null);
   const [schedules, setSchedules] = useState<Schedule[]>([
     { week_day: 0, from: '', to: '' },
@@ -200,6 +200,6 @@ const TeacherForm: React.FC = () => {
       </main>
     </div>
   );
-};
+}
 
-export default TeacherForm;
+export default GiveClasses;
