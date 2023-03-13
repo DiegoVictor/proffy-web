@@ -4,12 +4,12 @@ import { toast } from 'react-toastify';
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
-import Input from '../../components/Input';
 import Select from '../../components/Select';
 import api from '../../services/api';
 import './styles.css';
+import Input from '../../components/Input';
 
-const TeacherList: React.FC = () => {
+function Study() {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const handleSubmit = useCallback(async data => {
     try {
@@ -69,6 +69,6 @@ const TeacherList: React.FC = () => {
       </main>
     </div>
   );
-};
+}
 
-export default TeacherList;
+export default Study;
