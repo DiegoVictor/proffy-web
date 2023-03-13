@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import { useAuth } from '../hooks/auth';
 
 import Landing from '../pages/Landing';
+import GiveClasses from '../pages/GiveClasses';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import RequireAuth from './RequireAuth';
@@ -43,6 +44,9 @@ function Routes() {
 
       <RequireAuth>
         <Route path="/" exact component={Landing} />
+      </RequireAuth>
+      <RequireAuth>
+        <Route path="/give-classes" component={GiveClasses} />
       </RequireAuth>
     </BrowserRouter>
   );
