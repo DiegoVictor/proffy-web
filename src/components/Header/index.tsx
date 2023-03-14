@@ -3,36 +3,38 @@ import { Link } from 'react-router-dom';
 
 import LogoImg from '../../assets/images/logo.svg';
 import BackIcon from '../../assets/images/icons/back.svg';
-import './styles.css';
+import { Container } from './styles';
 
-interface PageHeaderProps {
+interface HeaderProps {
   title: string;
   description?: string;
 }
 
-function PageHeader({
+function Header({
   title,
   description,
   children,
-}: PropsWithChildren<PageHeaderProps>) {
+}: PropsWithChildren<HeaderProps>) {
   return (
-    <header className="page-header">
-      <div className="top-bar-container">
-        <Link to="/">
-          <img src={BackIcon} alt="Voltar" />
-        </Link>
-        <img src={LogoImg} alt="Proffy" />
+    <Container>
+      <div>
+        <div>
+          <Link to="/">
+            <img src={BackIcon} alt="Voltar" />
+          </Link>
+          <img src={LogoImg} alt="Proffy" />
+        </div>
       </div>
 
-      <div className="header-content">
+      <section>
         <strong>{title}</strong>
 
         {description && <p>{description}</p>}
 
         {children}
-      </div>
-    </header>
+      </section>
+    </Container>
   );
 }
 
-export default PageHeader;
+export default Header;
