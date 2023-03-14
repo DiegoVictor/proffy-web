@@ -12,7 +12,7 @@ import api from '../../services/api';
 import Proffy from '../../components/Proffy';
 import BackButton from '../../components/BackButton';
 import SuccessOverlay from '../../components/SuccessOverlay';
-import { Container, Main } from '../../assets/styles/global';
+import { Container, Panel } from '../../assets/styles/global';
 
 function ForgotPassword() {
   const form = useRef<FormHandles>(null);
@@ -62,7 +62,7 @@ function ForgotPassword() {
   }
   return (
     <Container>
-      <Main>
+      <Panel>
         <div>
           <BackButton />
 
@@ -88,7 +88,7 @@ function ForgotPassword() {
 
           <div />
         </div>
-      </Main>
+      </Panel>
 
       <Proffy />
     </Container>

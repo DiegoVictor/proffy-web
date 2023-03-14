@@ -79,7 +79,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Main = styled.div`
+export const Panel = styled.div`
   > div {
     display: flex;
     justify-content: space-between;

@@ -14,7 +14,7 @@ import { Title, InputGroup, Actions, Footer, Register } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useAuth } from '../../hooks/auth';
 import Proffy from '../../components/Proffy';
-import { Container, Main } from '../../assets/styles/global';
+import { Container, Panel } from '../../assets/styles/global';
 
 function SignIn() {
   const form = useRef<FormHandles>(null);
@@ -52,7 +52,7 @@ function SignIn() {
     <Container>
       <Proffy />
 
-      <Main>
+      <Panel>
         <div>
           <div />
 
@@ -122,7 +122,7 @@ function SignIn() {
             </div>
           </Footer>
         </div>
-      </Main>
+      </Panel>
     </Container>
   );
 }

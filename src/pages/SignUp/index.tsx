@@ -13,7 +13,7 @@ import api from '../../services/api';
 import Proffy from '../../components/Proffy';
 import BackButton from '../../components/BackButton';
 import SuccessOverlay from '../../components/SuccessOverlay';
-import { Container, Main } from '../../assets/styles/global';
+import { Container, Panel } from '../../assets/styles/global';
 
 function SignUp() {
   const form = useRef<FormHandles>(null);
@@ -76,7 +76,7 @@ function SignUp() {
 
   return (
     <Container>
-      <Main>
+      <Panel>
         <div>
           <BackButton />
 
@@ -127,7 +127,7 @@ function SignUp() {
 
           <Bottom />
         </div>
-      </Main>
+      </Panel>
 
       <Proffy />
     </Container>
