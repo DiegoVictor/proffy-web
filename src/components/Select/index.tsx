@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import { useField } from '@unform/core';
 
-import './styles.css';
+import { Container } from './styles';
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
@@ -35,7 +35,7 @@ function Select({
   }, [fieldName, registerField]);
 
   return (
-    <div className="select-block">
+    <Container>
       <label htmlFor={name}>
         {label}
         <select
@@ -56,7 +56,7 @@ function Select({
         </select>
       </label>
       {error && <span>{error}</span>}
-    </div>
+    </Container>
   );
 }
 
