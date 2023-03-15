@@ -3,17 +3,18 @@ import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
 
 import Header from '../../components/Header';
-import TeacherItem, { Teacher } from '../../components/TeacherItem';
+import Teacher, { TeacherProps } from '../../components/Teacher';
 import Select from '../../components/Select';
 import api from '../../services/api';
-import './styles.css';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
+import { Container, Teachers } from './styles';
 
 function Study() {
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
+  const [teachers, setTeachers] = useState<TeacherProps[]>([]);
   const handleSubmit = useCallback(async data => {
     try {
-      const response = await api.get<Teacher[]>('classes', {
+      const response = await api.get<TeacherProps[]>('classes', {
         params: data,
       });
       setTeachers(response.data);
@@ -23,9 +24,8 @@ function Study() {
   }, []);
 
   return (
-    <div id="page-teacher-list" className="container">
+    <Container>
       <Header title="Estes são os proffys disponíveis">
-        <Form id="search-teachers" onSubmit={handleSubmit}>
           <Select
             name="subject"
             label="Matéria"
@@ -58,16 +58,16 @@ function Study() {
 
           <Input type="time" name="time" label="Hora" />
 
-          <button type="submit">Buscar</button>
+          <Button type="submit">Buscar</Button>
         </Form>
       </Header>
 
-      <main>
-        {teachers.map((teacher: Teacher) => (
-          <TeacherItem key={teacher.id} teacher={teacher} />
+      <Teachers>
+        {teachers.map((teacher: TeacherProps) => (
+          <Teacher key={teacher.id} teacher={teacher} />
         ))}
-      </main>
-    </div>
+      </Teachers>
+    </Container>
   );
 }
 
