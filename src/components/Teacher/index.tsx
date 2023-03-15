@@ -3,9 +3,9 @@ import React, { PropsWithChildren, useCallback } from 'react';
 import WhatsAppIcon from '../../assets/images/icons/whatsapp.svg';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
-import './styles.css';
+import { Container, Header, Bio, Footer } from './styles';
 
-export interface Teacher {
+export interface TeacherProps {
   id: number;
   subject: string;
   cost: number;
@@ -15,35 +15,33 @@ export interface Teacher {
   bio: string;
 }
 
-interface TeacherItemProps {
-  teacher: Teacher;
-}
-
-function TeacherItem({ teacher }: PropsWithChildren<TeacherItemProps>) {
+function Teacher({
+  teacher: { id, avatar, name, subject, bio, cost, whatsapp },
+}: PropsWithChildren<{ teacher: TeacherProps }>) {
   const createConnection = useCallback(() => {
-    api.post('connections', { user_id: teacher.id });
-  }, [teacher]);
+    api.post('connections', { user_id: id });
+  }, [id]);
 
   return (
-    <article className="teacher-item">
-      <header>
-        <img src={teacher.avatar} alt={teacher.name} />
+    <Container>
+      <Header>
+        <img src={avatar} alt={name} />
         <div>
-          <strong>{teacher.name}</strong>
-          <span>{teacher.subject}</span>
+          <strong>{name}</strong>
+          <span>{subject}</span>
         </div>
-      </header>
+      </Header>
 
-      <p>{teacher.bio}</p>
+      <Bio>{bio}</Bio>
 
-      <footer>
+      <Footer>
         <p>
           Preço/hora
-          <strong>{formatValue(teacher.cost)}</strong>
+          <strong>{formatValue(cost)}</strong>
         </p>
         <a
           onClick={createConnection}
-          href={`https://wa.me/${teacher.whatsapp}`}
+          href={`https://wa.me/${whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
           type="button"
@@ -51,9 +49,9 @@ function TeacherItem({ teacher }: PropsWithChildren<TeacherItemProps>) {
           <img src={WhatsAppIcon} alt="WhatsApp" />
           Entrar em contato
         </a>
-      </footer>
-    </article>
+      </Footer>
+    </Container>
   );
 }
 
-export default TeacherItem;
+export default Teacher;
