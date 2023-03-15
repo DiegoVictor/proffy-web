@@ -26,6 +26,7 @@ function Study() {
   return (
     <Container>
       <Header title="Estes são os proffys disponíveis">
+        <Form onSubmit={handleSubmit}>
           <Select
             name="subject"
             label="Matéria"
