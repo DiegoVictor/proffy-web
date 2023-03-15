@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
 
-import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import Select from '../../components/Select';
 import api from '../../services/api';
@@ -24,7 +24,7 @@ function Study() {
 
   return (
     <div id="page-teacher-list" className="container">
-      <PageHeader title="Estes são os proffys disponíveis">
+      <Header title="Estes são os proffys disponíveis">
         <Form id="search-teachers" onSubmit={handleSubmit}>
           <Select
             name="subject"
@@ -60,7 +60,7 @@ function Study() {
 
           <button type="submit">Buscar</button>
         </Form>
-      </PageHeader>
+      </Header>
 
       <main>
         {teachers.map((teacher: Teacher) => (
