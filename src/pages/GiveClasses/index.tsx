@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import { FormHandles } from '@unform/core';
 
-import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
 import Input from '../../components/Input';
 import WarningIcon from '../../assets/images/icons/warning.svg';
 import Textarea from '../../components/Textarea';
@@ -101,7 +101,7 @@ function GiveClasses() {
 
   return (
     <div id="page-teacher-form" className="container">
-      <PageHeader
+      <Header
         title="Que incrível que você quer dar aulas."
         description="O primeiro passo é preencher esse formulário de inscrição"
       />
