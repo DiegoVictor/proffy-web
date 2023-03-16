@@ -12,7 +12,7 @@ import Textarea from '../../components/Textarea';
 import Select from '../../components/Select';
 import api from '../../services/api';
 import getValidationErrors from '../../utils/getValidationErrors';
-import './styles.css';
+import { Container, Footer, Main, ScheduleItem } from './styles';
 
 interface Schedule {
   week_day: number;
@@ -100,13 +100,13 @@ function GiveClasses() {
   );
 
   return (
-    <div id="page-teacher-form" className="container">
+    <Container>
       <Header
         title="Que incrível que você quer dar aulas."
         description="O primeiro passo é preencher esse formulário de inscrição"
       />
 
-      <main>
+      <Main>
         <Form ref={formRef} onSubmit={handleSubmit}>
           <fieldset>
             <legend>Seus dados</legend>
@@ -148,8 +148,8 @@ function GiveClasses() {
               </div>
             </legend>
 
-            {schedules.map((schedule, index) => (
-              <div key={`schedule_${index}`} className="schedule-item">
+            {schedules.map((_, index) => (
+              <ScheduleItem key={`schedule_${index}`}>
                 <Select
                   name={`schedule[${index}].weed_day`}
                   label="Dia da semana"
@@ -183,11 +183,11 @@ function GiveClasses() {
                   label="Até"
                   type="time"
                 />
-              </div>
+              </ScheduleItem>
             ))}
           </fieldset>
 
-          <footer>
+          <Footer>
             <p>
               <img src={WarningIcon} alt="Aviso importante" />
               Importante!
@@ -195,10 +195,10 @@ function GiveClasses() {
               Preencha todos os dados
             </p>
             <button type="submit">Salvar cadastro</button>
-          </footer>
+          </Footer>
         </Form>
-      </main>
-    </div>
+      </Main>
+    </Container>
   );
 }
 
