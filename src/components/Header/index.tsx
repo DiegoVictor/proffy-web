@@ -8,11 +8,13 @@ import { Container } from './styles';
 interface HeaderProps {
   title: string;
   description?: string;
+  pageName?: string;
 }
 
 function Header({
   title,
   description,
+  pageName,
   children,
 }: PropsWithChildren<HeaderProps>) {
   return (
@@ -22,6 +24,7 @@ function Header({
           <Link to="/">
             <img src={BackIcon} alt="Voltar" />
           </Link>
+          {pageName && <div>{pageName}</div>}
           <img src={LogoImg} alt="Proffy" />
         </div>
       </div>

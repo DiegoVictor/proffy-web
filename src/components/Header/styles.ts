@@ -12,7 +12,7 @@ export const Container = styled.header`
   > div {
     background-color: var(--color-primary-dark);
 
-    div {
+    > div {
       align-items: center;
       color: var(--color-text-in-primary);
       display: flex;
