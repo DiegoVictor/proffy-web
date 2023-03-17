@@ -22,10 +22,12 @@ export const Container = styled.div`
     }
   }
 
-  select {
+  select,
+  option {
     background-color: var(--color-input-background);
     border: 1px solid var(--color-line-in-white);
     border-radius: 0.8rem;
+    color: var(--color-select-text);
     font-family: Archivo;
     font-size: 1.6rem;
     height: 5.6rem;

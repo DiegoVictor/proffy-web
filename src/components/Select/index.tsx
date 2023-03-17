@@ -11,6 +11,7 @@ import { Container } from './styles';
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   label: string;
+  placeholder?: string;
   options: Array<{
     value: string;
     label: string;
@@ -21,6 +22,7 @@ function Select({
   name,
   label,
   options,
+  placeholder,
   ...props
 }: PropsWithChildren<SelectProps>) {
   const inputRef = useRef(null);
@@ -46,7 +48,7 @@ function Select({
           {...props}
         >
           <option value="" disabled hidden>
-            Selecione uma opção
+            {placeholder ?? 'Selecione'}
           </option>
           {options.map(option => (
             <option key={option.value} value={option.value}>
