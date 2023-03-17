@@ -8,13 +8,13 @@ import { Container } from './styles';
 interface HeaderProps {
   title: string;
   description?: string;
-  pageName?: string;
+  page?: string;
 }
 
 function Header({
   title,
   description,
-  pageName,
+  page,
   children,
 }: PropsWithChildren<HeaderProps>) {
   return (
@@ -24,7 +24,7 @@ function Header({
           <Link to="/">
             <img src={BackIcon} alt="Voltar" />
           </Link>
-          {pageName && <div>{pageName}</div>}
+          {page && <div>{page}</div>}
           <img src={LogoImg} alt="Proffy" />
         </div>
       </div>

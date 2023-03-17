@@ -25,7 +25,7 @@ function Study() {
 
   return (
     <Container>
-      <Header title="Estes são os proffys disponíveis">
+      <Header title="Estes são os proffys disponíveis" page="Estudar">
         <Form onSubmit={handleSubmit}>
           <Select
             name="subject"
