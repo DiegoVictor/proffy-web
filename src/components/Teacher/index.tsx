@@ -13,6 +13,12 @@ export interface TeacherProps {
   avatar: string;
   whatsapp: string;
   bio: string;
+function getDayAvailabilty(days: TeacherProps['schedules']) {
+  return days
+    .map(({ from, to }) =>
+      `${from} - ${to}`.replace(/:/gi, 'h').replace(/00/gi, ''),
+    )
+    .join(', ');
 }
 
 function Teacher({
