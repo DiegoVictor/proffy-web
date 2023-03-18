@@ -52,6 +52,47 @@ export const Bio = styled.p`
   }
 `;
 
+export const Schedules = styled.div`
+  display: flex;
+  padding: 3.2rem;
+  overflow-x: auto;
+  width: 100%;
+`;
+
+export const Availability = styled.div<{ disabled: boolean }>`
+  background: var(--color-box-footer);
+  border: 1px solid var(--color-line-in-white);
+  border-radius: 8px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  margin-right: 16px;
+  min-width: 125px;
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
+  padding: 16px;
+
+  &:last-child {
+    margin: 0px;
+  }
+
+  span {
+    display: inline-block;
+    font-family: Archivo;
+    font-weight: 700;
+    font-size: 16px;
+    line-break: normal;
+    line-height: 26px;
+    margin-bottom: 12px;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+`;
+
 export const Footer = styled.footer`
   align-items: center;
   background-color: var(--color-box-footer);

@@ -4,6 +4,14 @@ import WhatsAppIcon from '../../assets/images/icons/whatsapp.svg';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
 import getWeekDayName from '../../utils/getWeekDayName';
+import {
+  Container,
+  Header,
+  Bio,
+  Schedules,
+  Availability,
+  Footer,
+} from './styles';
 
 export interface TeacherProps {
   id: number;
@@ -66,6 +74,17 @@ function Teacher({
       </Header>
 
       <Bio>{bio}</Bio>
+
+      <Schedules>
+        {Object.keys(availability).map(day => (
+          <Availability disabled={!availability[day]}>
+            Dia
+            <span>{day}</span>
+            Horário
+            <span>{availability[day] ? availability[day] : ' - '}</span>
+          </Availability>
+        ))}
+      </Schedules>
 
       <Footer>
         <p>
