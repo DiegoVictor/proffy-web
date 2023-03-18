@@ -1,9 +1,9 @@
-import React, { PropsWithChildren, useCallback } from 'react';
+import React, { PropsWithChildren, useCallback, useState } from 'react';
 
 import WhatsAppIcon from '../../assets/images/icons/whatsapp.svg';
 import api from '../../services/api';
 import formatValue from '../../utils/formatValue';
-import { Container, Header, Bio, Footer } from './styles';
+import getWeekDayName from '../../utils/getWeekDayName';
 
 export interface TeacherProps {
   id: number;
@@ -13,6 +13,13 @@ export interface TeacherProps {
   avatar: string;
   whatsapp: string;
   bio: string;
+  schedules: {
+    week_day: number;
+    from: string;
+    to: string;
+  }[];
+}
+
 function getDayAvailabilty(days: TeacherProps['schedules']) {
   return days
     .map(({ from, to }) =>
@@ -22,11 +29,31 @@ function getDayAvailabilty(days: TeacherProps['schedules']) {
 }
 
 function Teacher({
-  teacher: { id, avatar, name, subject, bio, cost, whatsapp },
+  teacher: { id, avatar, name, subject, bio, cost, whatsapp, schedules },
 }: PropsWithChildren<{ teacher: TeacherProps }>) {
   const createConnection = useCallback(() => {
     api.post('connections', { user_id: id });
   }, [id]);
+
+  const [availability] = useState<Record<string, string | null>>(() => {
+    const weekDays = Array.from({ length: 7 }, (_, dayOfWeek) =>
+      getWeekDayName(dayOfWeek),
+    );
+
+    return weekDays.reduce<Record<string, string | null>>(
+      (week, day, dayOfWeek) => {
+        week[day] = null;
+
+        const days = schedules.filter(({ week_day }) => week_day === dayOfWeek);
+        if (days.length > 0) {
+          week[day] = getDayAvailabilty(days);
+        }
+
+        return week;
+      },
+      {},
+    );
+  });
 
   return (
     <Container>
