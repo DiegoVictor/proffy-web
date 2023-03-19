@@ -36,7 +36,7 @@ export const Main = styled.main`
       padding: 0px 6.4rem;
     }
 
-    div + div {
+    > div + div {
       margin-top: 2.4rem;
     }
 
@@ -79,6 +79,30 @@ export const Main = styled.main`
 
   label {
     color: var(--color-text-complement);
+  }
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+
+  @media (max-width: 699px) {
+    flex-wrap: wrap;
+  }
+
+  > div {
+    width: 100%;
+
+    @media (min-width: 700px) {
+      &:first-child {
+        margin-right: 16px;
+        width: 60%;
+      }
+
+      &:last-child {
+        margin-left: 16px;
+        width: 40%;
+      }
+    }
   }
 `;
 

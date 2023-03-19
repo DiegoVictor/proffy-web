@@ -8,11 +8,10 @@ import { FormHandles } from '@unform/core';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import WarningIcon from '../../assets/images/icons/warning.svg';
-import Textarea from '../../components/Textarea';
 import Select from '../../components/Select';
 import api from '../../services/api';
 import getValidationErrors from '../../utils/getValidationErrors';
-import { Container, Footer, Main, ScheduleItem } from './styles';
+import { Container, Footer, Main, InputGroup, ScheduleItem } from './styles';
 
 interface Schedule {
   week_day: number;
@@ -95,22 +94,30 @@ function GiveClasses() {
           <fieldset>
             <legend>Sobre a aula</legend>
 
-            <Select
-              name="subject"
-              label="Matéria"
-              options={[
-                { value: 'Artes', label: 'Artes' },
-                { value: 'Biologia', label: 'Biologia' },
-                { value: 'Ciências', label: 'Ciências' },
-                { value: 'Educação Física', label: 'Educação Física' },
-                { value: 'Geografia', label: 'Geografia' },
-                { value: 'História', label: 'História' },
-                { value: 'Matemática', label: 'Matemática' },
-                { value: 'Português', label: 'Português' },
-                { value: 'Química', label: 'Química' },
-              ]}
-            />
-            <Input name="cost" label="Custo da sua hora por aula" />
+            <InputGroup>
+              <Select
+                name="subject"
+                label="Matéria"
+                placeholder="Selecione qual você quer ensinar"
+                options={[
+                  { value: 'Artes', label: 'Artes' },
+                  { value: 'Biologia', label: 'Biologia' },
+                  { value: 'Ciências', label: 'Ciências' },
+                  { value: 'Educação Física', label: 'Educação Física' },
+                  { value: 'Geografia', label: 'Geografia' },
+                  { value: 'História', label: 'História' },
+                  { value: 'Matemática', label: 'Matemática' },
+                  { value: 'Português', label: 'Português' },
+                  { value: 'Química', label: 'Química' },
+                ]}
+              />
+              <Input
+                name="cost"
+                type="number"
+                label="Custo da sua hora por aula"
+                placeholder="R$"
+              />
+            </InputGroup>
           </fieldset>
 
           <fieldset>
