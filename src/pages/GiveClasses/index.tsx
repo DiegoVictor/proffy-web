@@ -68,7 +68,6 @@ function GiveClasses() {
 
         await api.post('classes', data);
 
-        toast.success('Cadastro realizado com sucesso!');
         history.push('/');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
