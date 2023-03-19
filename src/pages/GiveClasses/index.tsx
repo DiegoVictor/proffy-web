@@ -43,23 +43,11 @@ function GiveClasses() {
   );
 
   const handleSubmit = useCallback(
-    async ({ name, avatar, whatsapp, bio, subject, cost }) => {
+    async ({ subject, cost }) => {
       try {
         formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
-          name: Yup.string()
-            .min(4, 'Deve ter pelo menos 4 caracteres')
-            .required('Este campo é obrigatório'),
-          avatar: Yup.string()
-            .url('Deve ser uma URL válida')
-            .required('Este campo é obrigatório'),
-          whatsapp: Yup.string()
-            .min(9, 'Deve ter pelo menos 9 caracteres')
-            .required('Este campo é obrigatório'),
-          bio: Yup.string()
-            .min(10, 'Deve ter pelo menos 10 caracteres')
-            .required('Este campo é obrigatório'),
           subject: Yup.string().required('Este campo é obrigatório'),
           cost: Yup.string().required('Este campo é obrigatório'),
           schedule: Yup.array().of(
@@ -72,10 +60,6 @@ function GiveClasses() {
         });
 
         const data = {
-          name,
-          avatar,
-          whatsapp,
-          bio,
           subject,
           cost,
           schedule: schedules,
@@ -109,15 +93,6 @@ function GiveClasses() {
 
       <Main>
         <Form ref={formRef} onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>Seus dados</legend>
-
-            <Input name="name" label="Nome Completo" />
-            <Input name="avatar" label="Avatar" />
-            <Input name="whatsapp" label="WhatsApp" />
-            <Textarea name="bio" label="Bio" />
-          </fieldset>
-
           <fieldset>
             <legend>Sobre a aula</legend>
 
