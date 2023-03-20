@@ -63,11 +63,18 @@ function Study() {
         </Form>
       </Header>
 
-      <Teachers>
-        {teachers.map((teacher: TeacherProps) => (
-          <Teacher key={teacher.id} teacher={teacher} />
-        ))}
-      </Teachers>
+      {teachers.length > 0 ? (
+        <Teachers>
+          {teachers.map((teacher: TeacherProps) => (
+            <Teacher key={teacher.id} teacher={teacher} />
+          ))}
+        </Teachers>
+      ) : (
+        <p>
+          Nenhum professor encontrado
+          <br /> com sua pesquisa.
+        </p>
+      )}
     </Container>
   );
 }

@@ -48,6 +48,21 @@ export const Container = styled.div`
       color: var(--color-text-in-primary);
     }
   }
+
+  > p {
+    align-items: center;
+    display: flex;
+    margin-top: 50px;
+    padding: 10px;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+
+    @media (min-width: 700px) {
+      height: calc(100% - 354px);
+      margin-top: 0px;
+    }
+  }
 `;
 
 export const Teachers = styled.div`
