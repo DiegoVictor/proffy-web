@@ -9,6 +9,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import RequireAuth from './RequireAuth';
 import ForgotPassword from '../pages/ForgotPassword';
+import Profile from '../pages/Profile';
 
 function Routes() {
   const { user } = useAuth();
@@ -51,6 +52,9 @@ function Routes() {
       </RequireAuth>
       <RequireAuth>
         <Route path="/give-classes" component={GiveClasses} />
+      </RequireAuth>
+      <RequireAuth>
+        <Route path="/profile" component={Profile} />
       </RequireAuth>
     </BrowserRouter>
   );
