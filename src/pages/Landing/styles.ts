@@ -34,6 +34,11 @@ export const Header = styled.div`
         }
       }
     }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
   }
 `;
 

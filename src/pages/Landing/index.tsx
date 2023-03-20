@@ -27,10 +27,12 @@ function Landing() {
     <Container>
       <Header>
         <div>
-          <User>
-            {user?.avatar && <img src={user.avatar} alt={user?.name} />}
-            {user?.name}
-          </User>
+          <Link to="/profile">
+            <User>
+              {user?.avatar && <img src={user.avatar} alt={user?.name} />}
+              {user?.name}
+            </User>
+          </Link>
           <Logout>
             <Button bg="774DD6" onClick={signOut}>
               <img src={LogoutIcon} alt="Sair" />
