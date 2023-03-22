@@ -23,6 +23,13 @@ function Study() {
     }
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      const response = await api.get<TeacherProps[]>('/classes');
+      setTeachers(response.data);
+    })();
+  }, []);
+
   return (
     <Container>
       <Header title="Estes são os proffys disponíveis" page="Estudar">
