@@ -22,7 +22,6 @@ export const GlobalStyle = createGlobalStyle`
     --color-box-base: #FFFFFF;
     --color-box-footer: #FAFAFC;
     --color-form-error: #DD1030;
-    --color-select-text: #C1BCCC;
 
     font-size: 60%;
 
