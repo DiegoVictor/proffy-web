@@ -3,20 +3,31 @@ import { Link } from 'react-router-dom';
 
 import LogoImg from '../../assets/images/logo.svg';
 import BackIcon from '../../assets/images/icons/back.svg';
-import { Container } from './styles';
+import { Container, Aside } from './styles';
 
 interface HeaderProps {
-  title: string;
-  description?: string;
-  page?: string;
+  options: {
+    title: string;
+    description?: string;
+    page?: string;
+    aside?: {
+      text: React.ReactFragment;
+      icon: string;
+    };
+  };
 }
 
 function Header({
-  title,
-  description,
-  page,
+  options: { title, description, page, aside },
   children,
 }: PropsWithChildren<HeaderProps>) {
+  const Component = aside && (
+    <Aside>
+      {aside && <img src={aside.icon} alt="Emoji" />}
+      <span>{aside.text}</span>
+    </Aside>
+  );
+
   return (
     <Container>
       <div>
@@ -30,9 +41,20 @@ function Header({
       </div>
 
       <section>
-        <strong>{title}</strong>
-
-        {description && <p>{description}</p>}
+        {description ? (
+          <>
+            <strong>{title}</strong>
+            <div>
+              <p>{description}</p>
+              {Component}
+            </div>
+          </>
+        ) : (
+          <div>
+            <strong>{title}</strong>
+            {Component}
+          </div>
+        )}
 
         {children}
       </section>

@@ -58,6 +58,16 @@ export const Container = styled.header`
       padding-bottom: 48px;
     }
 
+    > div {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @media (max-width: 549px) {
+        display: block;
+      }
+    }
+
     strong {
       color: var(--color-title-in-primary);
       font-family: Archivo;
@@ -66,6 +76,7 @@ export const Container = styled.header`
       line-height: 4.2rem;
 
       @media (min-width: 700px) {
+        display: inline-block;
         max-width: 350px;
       }
     }
@@ -77,5 +88,26 @@ export const Container = styled.header`
       max-width: 30rem;
       margin-top: 2.4rem;
     }
+  }
+`;
+
+export const Aside = styled.div`
+  align-items: center;
+  color: var(--color-text-in-primary);
+  display: flex;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+
+  @media (max-width: 549px) {
+    margin: 16px 0px;
+  }
+
+  span {
+    display: inline-block;
+    margin-left: 16px;
+    min-width: 95px;
   }
 `;
