@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
@@ -19,11 +19,18 @@ interface Schedule {
   to: string;
 }
 
+interface Class {
+  cost?: number;
+  subject?: string;
+  schedules?: Schedule[];
+}
+
 function GiveClasses() {
   const formRef = useRef<FormHandles>(null);
   const [schedules, setSchedules] = useState<Schedule[]>([
     { week_day: 0, from: '', to: '' },
   ]);
+  const [classItem, setClassItem] = useState<Class>({});
   const history = useHistory();
 
   const addNewScheduleItem = useCallback(() => {
@@ -80,6 +87,19 @@ function GiveClasses() {
     },
     [schedules, history],
   );
+
+  useEffect(() => {
+    (async () => {
+      const response = await api.get<Class>('/classes/my-class');
+
+      const { cost, subject } = response.data;
+      const data = { cost, subject };
+      if (response.data?.schedules) {
+        setSchedules(response.data.schedules);
+      }
+      setClassItem(data);
+    })();
+  }, []);
 
   return (
     <Container>
