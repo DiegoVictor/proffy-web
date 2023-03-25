@@ -124,7 +124,7 @@ function GiveClasses() {
       />
 
       <Main>
-        <Form ref={formRef} onSubmit={handleSubmit}>
+        <Form ref={formRef} onSubmit={handleSubmit} initialData={classItem}>
           <fieldset>
             <legend>Sobre a aula</legend>
 
@@ -144,6 +144,7 @@ function GiveClasses() {
                   { value: 'Português', label: 'Português' },
                   { value: 'Química', label: 'Química' },
                 ]}
+                value={classItem.subject ?? ''}
               />
               <Input
                 name="cost"
@@ -181,21 +182,24 @@ function GiveClasses() {
                     { value: '5', label: 'Sexta-feira' },
                     { value: '6', label: 'Sabado' },
                   ]}
+                  value={schedules[index].week_day}
                 />
 
                 <Input
-                  name={`schedule[${index}].from`}
+                  name={`schedules[${index}].from`}
                   onChange={e => {
                     setScheduleItemValue(index, 'from', e.target.value);
                   }}
                   label="Das"
                   type="time"
+                  value={schedules[index].from}
                 />
                 <Input
-                  name={`schedule[${index}].to`}
+                  name={`schedules[${index}].to`}
                   onChange={e => {
                     setScheduleItemValue(index, 'to', e.target.value);
                   }}
+                  value={schedules[index].to}
                   label="Até"
                   type="time"
                 />
