@@ -206,9 +206,11 @@ function GiveClasses() {
           <Footer>
             <p>
               <img src={WarningIcon} alt="Aviso importante" />
-              Importante!
-              <br />
-              Preencha todos os dados
+              <div>
+                <span>Importante!</span>
+                <br />
+                Preencha todos os dados
+              </div>
             </p>
             <button type="submit">Salvar cadastro</button>
           </Footer>

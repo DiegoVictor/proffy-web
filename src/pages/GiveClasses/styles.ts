@@ -116,7 +116,8 @@ export const Footer = styled.footer`
     align-items: center;
     display: flex;
     justify-content: space-between;
-    padding: 4.0rem 6.4rem;
+    padding: 4rem 6.4rem;
+  }
 
   p {
     align-items: center;
@@ -132,6 +133,11 @@ export const Footer = styled.footer`
 
     img {
       margin-right: 2rem;
+    }
+
+    span {
+      color: var(--color-primary);
+      display: inline-block;
     }
   }
 
