@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import { FormHandles } from '@unform/core';
 
+import Rocket from '../../assets/images/icons/rocket.svg';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import WarningIcon from '../../assets/images/icons/warning.svg';
@@ -104,9 +105,22 @@ function GiveClasses() {
   return (
     <Container>
       <Header
-        title="Que incrível que você quer dar aulas."
-        description="O primeiro passo é preencher esse formulário de inscrição"
-        page="Dar aulas"
+        options={{
+          title: 'Que incrível que você quer dar aulas.',
+          description:
+            'O primeiro passo é preencher esse formulário de inscrição',
+          page: 'Dar aulas',
+          aside: {
+            icon: Rocket,
+            text: (
+              <>
+                Preparare-se!
+                <br />
+                vai ser o máximo.
+              </>
+            ),
+          },
+        }}
       />
 
       <Main>
