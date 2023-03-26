@@ -28,7 +28,11 @@ function Study() {
   useEffect(() => {
     (async () => {
       const response = await api.get<TeacherProps[]>('/classes');
+
       setTeachers(response.data);
+
+      const { 'X-Total-Count': total } = response.headers;
+      setCount(total ?? 32);
     })();
   }, []);
 
