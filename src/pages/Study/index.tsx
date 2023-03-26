@@ -12,6 +12,8 @@ import { Container, Teachers } from './styles';
 
 function Study() {
   const [teachers, setTeachers] = useState<TeacherProps[]>([]);
+  const [count, setCount] = useState<number>();
+
   const handleSubmit = useCallback(async data => {
     try {
       const response = await api.get<TeacherProps[]>('classes', {
