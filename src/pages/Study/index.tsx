@@ -1,7 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Form } from '@unform/web';
 import { toast } from 'react-toastify';
 
+import Smile from '../../assets/images/icons/smile.svg';
 import Header from '../../components/Header';
 import Teacher, { TeacherProps } from '../../components/Teacher';
 import Select from '../../components/Select';
@@ -38,7 +39,23 @@ function Study() {
 
   return (
     <Container>
-      <Header title="Estes são os proffys disponíveis" page="Estudar">
+      <Header
+        options={{
+          title: 'Estes são os proffys disponíveis',
+          page: 'Estudar',
+          aside: count
+            ? {
+                icon: Smile,
+                text: (
+                  <>
+                    Nós temos {count}
+                    <br /> professores.
+                  </>
+                ),
+              }
+            : undefined,
+        }}
+      >
         <Form onSubmit={handleSubmit}>
           <Select
             name="subject"
