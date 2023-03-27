@@ -1,5 +1,12 @@
 import { Container, Avatar } from './styles';
 import Header from '../../components/Header';
+interface User {
+  name: string;
+  email: string;
+  avatar?: string;
+  whatsapp: string;
+  bio?: string;
+}
 
 function Profile() {
   const [user, setUser] = useState<User>();
