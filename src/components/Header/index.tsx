@@ -7,7 +7,7 @@ import { Container, Aside } from './styles';
 
 interface HeaderProps {
   options: {
-    title: string;
+    title?: string;
     description?: string;
     page?: string;
     aside?: {
