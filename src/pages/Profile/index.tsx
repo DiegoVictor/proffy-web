@@ -29,7 +29,6 @@ function Profile() {
     <Container>
       <Header
         options={{
-          title: '',
           page: 'Meu perfil',
         }}
       >
