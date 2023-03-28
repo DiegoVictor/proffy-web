@@ -6,7 +6,7 @@ export const Container = styled.header`
   flex-direction: column;
 
   @media (min-width: 700px) {
-    height: 340px;
+    min-height: 340px;
   }
 
   > div {
