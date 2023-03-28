@@ -17,17 +17,20 @@ interface HeaderProps {
   };
 }
 
+function Component({
+  description,
+  title,
+  children,
+}: PropsWithChildren<{
+  title?: string;
+  description?: string;
+}>) {
+}
+
 function Header({
   options: { title, description, page, aside },
   children,
 }: PropsWithChildren<HeaderProps>) {
-  const Component = aside && (
-    <Aside>
-      {aside && <img src={aside.icon} alt="Emoji" />}
-      <span>{aside.text}</span>
-    </Aside>
-  );
-
   return (
     <Container>
       <div>
@@ -41,20 +44,14 @@ function Header({
       </div>
 
       <section>
-        {description ? (
-          <>
-            <strong>{title}</strong>
-            <div>
-              <p>{description}</p>
-              {Component}
-            </div>
-          </>
-        ) : (
-          <div>
-            <strong>{title}</strong>
-            {Component}
-          </div>
-        )}
+        <Component title={title} description={description}>
+          {aside && (
+            <Aside>
+              {aside && <img src={aside.icon} alt="Emoji" />}
+              <span>{aside.text}</span>
+            </Aside>
+        </Component>
+          )}
 
         {children}
       </section>
