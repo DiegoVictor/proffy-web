@@ -72,8 +72,8 @@ function Header({
               {aside && <img src={aside.icon} alt="Emoji" />}
               <span>{aside.text}</span>
             </Aside>
-        </Component>
           )}
+        </Component>
 
         {children}
       </section>
