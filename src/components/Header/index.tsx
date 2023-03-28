@@ -25,6 +25,28 @@ function Component({
   title?: string;
   description?: string;
 }>) {
+  if (description) {
+    return (
+      <>
+        {title && <strong>{title}</strong>}
+        <div>
+          <p>{description}</p>
+          {children}
+        </div>
+      </>
+    );
+  }
+
+  if (children || title) {
+    return (
+      <div>
+        {title && <strong>{title}</strong>}
+        {children}
+      </div>
+    );
+  }
+
+  return null;
 }
 
 function Header({
