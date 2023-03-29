@@ -23,6 +23,9 @@ interface IAuthState {
 interface IAuthContext extends IAuthState {
   signOut: () => void;
   signIn: (email: string, password: string, remember: boolean) => Promise<void>;
+  updateProfile: (
+    profile: Partial<Pick<IUser, 'name' | 'surname' | 'avatar'>>,
+  ) => void;
 }
 
 const AuthContext = createContext({} as IAuthContext);
@@ -91,13 +94,29 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
     [],
   );
 
+  const updateProfile = useCallback(
+    (profile: Partial<Pick<IUser, 'name' | 'surname' | 'avatar'>>): void => {
+      if (data.user) {
+        setData({
+          ...data,
+          user: {
+            ...data.user,
+            ...profile,
+          },
+        });
+      }
+    },
+    [data],
+  );
+
   const context = useMemo(
     () => ({
       ...data,
       signOut,
       signIn,
+      updateProfile,
     }),
-    [data, signOut, signIn],
+    [data, signOut, signIn, updateProfile],
   );
 
   return (
