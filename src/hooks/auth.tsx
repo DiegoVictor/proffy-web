@@ -11,6 +11,7 @@ import api from '../services/api';
 interface IUser {
   id: string;
   name: string;
+  surname: string;
   avatar: string;
 }
 
@@ -55,7 +56,7 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
     async (email: string, password: string, remember: boolean) => {
       const {
         data: {
-          user: { id, name, avatar },
+          user: { id, name, surname, avatar },
           token,
         },
       } = await api.post('/sessions', {
@@ -70,6 +71,7 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
           JSON.stringify({
             id,
             name,
+            surname,
             avatar,
           }),
         );
@@ -81,6 +83,7 @@ export function AuthProvider({ children }: PropsWithChildren<object>) {
         user: {
           id,
           name,
+          surname,
           avatar,
         },
       });
