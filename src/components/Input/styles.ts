@@ -4,6 +4,7 @@ export const InpuBlock = styled.div`
   position: relative;
 
   label {
+    color: var(--color-text-complement);
     font-size: 1.4rem;
 
     & + span {
