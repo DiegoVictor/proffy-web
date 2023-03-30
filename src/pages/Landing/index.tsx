@@ -15,6 +15,7 @@ import { useAuth } from '../../hooks/auth';
 function Landing() {
   const [totalConnections, setTotalConnections] = useState(0);
   const { user, signOut } = useAuth();
+  const fullName = `${user?.name} ${user?.surname}`.trim();
 
   useEffect(() => {
     (async () => {
@@ -29,8 +30,8 @@ function Landing() {
         <div>
           <Link to="/profile">
             <User>
-              {user?.avatar && <img src={user.avatar} alt={user?.name} />}
-              {user?.name}
+              {user?.avatar && <img src={user.avatar} alt={fullName} />}
+              {fullName}
             </User>
           </Link>
           <Logout>
