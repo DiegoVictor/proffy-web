@@ -1,7 +1,13 @@
-import { Container, Avatar } from './styles';
+  Avatar,
+  Container,
+  Avatar,
+} from './styles';
 import Header from '../../components/Header';
+import { useAuth } from '../../hooks/auth';
+
 interface User {
   name: string;
+  surname?: string;
   email: string;
   avatar?: string;
   whatsapp: string;
@@ -42,11 +48,20 @@ function Profile() {
           page: 'Meu perfil',
         }}
       >
-        <div>
-          <Avatar src={user?.avatar} alt={user?.name} />
-          <h2>{user?.name}</h2>
-          <h3>{subject}</h3>
-        </div>
+        <Avatar>
+          {user?.avatar ? (
+            <img src={user?.avatar} alt={fullName} />
+          ) : (
+            <Placeholder>
+              <span>
+                {user?.name.charAt(0)}
+                {user?.surname?.charAt(0)}
+              </span>
+            </Placeholder>
+          )}
+          {fullName && <h2>{fullName}</h2>}
+          {user?.subject && <h3>{user.subject}</h3>}
+        </Avatar>
       </Header>
     </Container>
   );
