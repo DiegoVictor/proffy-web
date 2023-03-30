@@ -9,21 +9,31 @@ interface User {
 }
 
 function Profile() {
-  const [user, setUser] = useState<User>();
-  const { user: { id: userId } = {} } = useAuth();
-  const [subject, setSubject] = useState<string>('');
+  const {
+    user: { id: userId, name: userName, surname: userSurname } = {},
+    updateProfile,
+  } = useAuth();
+  const fullName = `${userName} ${userSurname}`.trim();
+
+  const [user, setUser] = useState<User & { subject: string }>();
   useEffect(() => {
     (async () => {
-      const { data } = await api.get(`/users/${userId}`);
-      setUser(data);
+      const [
+        { data: profile },
+        {
+          data: { subject },
+        },
+      ] = await Promise.all([
+        api.get(`/users/${userId}`),
+        api.get('/classes/my-class'),
+      ]);
+
+      setUser({
+        ...profile,
+        subject,
+      });
     })();
   }, [userId]);
-  useEffect(() => {
-    (async () => {
-      const { data } = await api.get('/classes/my-class');
-      setSubject(data.subject);
-    })();
-  }, []);
 
   return (
     <Container>
