@@ -1,5 +1,8 @@
-  Avatar,
+import { FormHandles } from '@unform/core';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Form } from '@unform/web';
   Container,
+  Main,
   Avatar,
 } from './styles';
 import Header from '../../components/Header';
@@ -15,6 +18,7 @@ interface User {
 }
 
 function Profile() {
+  const formRef = useRef<FormHandles>(null);
   const {
     user: { id: userId, name: userName, surname: userSurname } = {},
     updateProfile,
@@ -22,6 +26,13 @@ function Profile() {
   const fullName = `${userName} ${userSurname}`.trim();
 
   const [user, setUser] = useState<User & { subject: string }>();
+
+  const handleSubmit = useCallback(
+    async ({ name, surname, avatar, whatsapp, bio }) => {
+    },
+    [updateProfile],
+  );
+
   useEffect(() => {
     (async () => {
       const [
@@ -63,6 +74,10 @@ function Profile() {
           {user?.subject && <h3>{user.subject}</h3>}
         </Avatar>
       </Header>
+      <Main>
+        <Form ref={formRef} initialData={user} onSubmit={handleSubmit}>
+        </Form>
+      </Main>
     </Container>
   );
 }
