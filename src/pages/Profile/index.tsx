@@ -4,10 +4,14 @@ import { Form } from '@unform/web';
 
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
+import WarningIcon from '../../assets/images/icons/warning.svg';
+import {
   Container,
   Main,
   Avatar,
+  Footer,
   InputGroup,
+  Placeholder,
 } from './styles';
 import Header from '../../components/Header';
 import { useAuth } from '../../hooks/auth';
@@ -97,6 +101,18 @@ function Profile() {
 
             <Textarea name="bio" label="Bio" />
           </fieldset>
+
+          <Footer>
+            <div>
+              <img src={WarningIcon} alt="Aviso importante" />
+              <div>
+                <span>Importante!</span>
+                <br />
+                Preencha todos os dados
+              </div>
+            </div>
+            <button type="submit">Atualizar</button>
+          </Footer>
         </Form>
       </Main>
     </Container>
