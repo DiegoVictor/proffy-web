@@ -1,9 +1,13 @@
 import { FormHandles } from '@unform/core';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Form } from '@unform/web';
+
+import Input from '../../components/Input';
+import Textarea from '../../components/Textarea';
   Container,
   Main,
   Avatar,
+  InputGroup,
 } from './styles';
 import Header from '../../components/Header';
 import { useAuth } from '../../hooks/auth';
@@ -76,6 +80,23 @@ function Profile() {
       </Header>
       <Main>
         <Form ref={formRef} initialData={user} onSubmit={handleSubmit}>
+          <fieldset>
+            <legend>Seus dados</legend>
+
+            <Input name="avatar" label="Avatar URL" />
+
+            <InputGroup>
+              <Input name="name" label="Nome" />
+              <Input name="surname" label="Sobrenome" />
+            </InputGroup>
+
+            <InputGroup>
+              <Input name="email" label="Email" readOnly />
+              <Input name="whatsapp" label="WhatsApp" />
+            </InputGroup>
+
+            <Textarea name="bio" label="Bio" />
+          </fieldset>
         </Form>
       </Main>
     </Container>
