@@ -24,6 +24,7 @@ Click to expand.<br>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/home.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/teachers.png" width="49%"/>
 <img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/give-classes.png" width="49%"/>
+<img src="https://raw.githubusercontent.com/DiegoVictor/proffy-web/main/screenshots/profile.png" width="49%"/>
 
 # Installing
 Easy peasy lemon squeezy:
