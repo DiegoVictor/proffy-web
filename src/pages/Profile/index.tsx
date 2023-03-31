@@ -1,9 +1,13 @@
 import { FormHandles } from '@unform/core';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Form } from '@unform/web';
+import { toast } from 'react-toastify';
+import * as Yup from 'yup';
 
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
+import api from '../../services/api';
+import getValidationErrors from '../../utils/getValidationErrors';
 import WarningIcon from '../../assets/images/icons/warning.svg';
 import {
   Container,
@@ -37,6 +41,43 @@ function Profile() {
 
   const handleSubmit = useCallback(
     async ({ name, surname, avatar, whatsapp, bio }) => {
+      try {
+        formRef.current?.setErrors({});
+
+        const schema = Yup.object().shape({
+          name: Yup.string()
+            .min(4, 'Deve ter pelo menos 4 caracteres')
+            .required('Este campo é obrigatório'),
+          surname: Yup.string()
+            .min(4, 'Deve ter pelo menos 4 caracteres')
+            .required('Este campo é obrigatório'),
+          avatar: Yup.string()
+            .url('Deve ser uma URL válida')
+            .required('Este campo é obrigatório'),
+          whatsapp: Yup.string()
+            .min(9, 'Deve ter pelo menos 9 caracteres')
+            .required('Este campo é obrigatório'),
+          bio: Yup.string()
+            .min(10, 'Deve ter pelo menos 10 caracteres')
+            .required('Este campo é obrigatório'),
+        });
+
+        const data = { name, surname, avatar, whatsapp, bio };
+        await schema.validate(data, { abortEarly: false });
+
+        await api.put('/users', data);
+
+        toast.success('Perfil atualizado com sucesso!');
+        updateProfile({ name, surname, avatar });
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
+
+          formRef.current?.setErrors(errors);
+        } else {
+          toast.error('Ops! Alguma coisa deu errado, tente novamente!');
+        }
+      }
     },
     [updateProfile],
   );
